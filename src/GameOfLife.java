@@ -17,7 +17,7 @@ public class GameOfLife {
 		GameBoard currentBoard = new GameBoard(currentGameBoard);	
 		
 		// Print generations 1 to 5
-		for (int i=2; i<=5; i++)
+		for (int i=1; i<=5; i++)
 		{	
 			System.out.println("\nGeneration " + i + ":");
 			currentBoard.print();
