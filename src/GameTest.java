@@ -224,5 +224,13 @@ public class GameTest {
 		
 	}
 	
+	@Test(expected = IllegalArgumentException.class) 
+	public void testGameBoard_WithUnitializedPieces_ThrowsException()
+	{
+		PieceState[][] testGameBoard = new PieceState[5][5];
+		testGameBoard[1][1] = PieceState.DEAD;
+		new GameBoard(testGameBoard);
+	}
+	
 
 }

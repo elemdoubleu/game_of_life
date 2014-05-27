@@ -15,9 +15,10 @@ public class GameBoard {
 	 */
 	public GameBoard(PieceState[][] board) {
 		
+		validateBoard(board);
 		currentBoard = board;
 	}
-	
+
 	/**
 	 * Get the number of rows in the GameBoard
 	 * @return Number of rows in GameBoard
@@ -83,18 +84,6 @@ public class GameBoard {
 		}
 		
 		return aliveNeighbors;
-	}
-	
-	/**
-	 * Validates the specified row and column are within range of the board
-	 * @param row Row of the piece location
-	 * @param col Column of the piece location
-	 */
-	private void validatePieceLocation(int row, int col) {
-		if (row < 0 || row >= numRows())
-			throw new IllegalArgumentException("Invalid row: value is outside of board bounds");
-		if (col < 0 || col >= numCols())
-			throw new IllegalArgumentException("Invalid col: value is outside of board bounds");
 	}
 	
 	/**
@@ -164,6 +153,30 @@ public class GameBoard {
 			}
 			System.out.print('\n');
 		}
+	}
+	
+	private static void validateBoard(PieceState[][] board) {
+		
+		for (int i=0; i<board.length; i++)
+		{
+			for(int j=0; j<board[0].length; j++)
+			{
+				if (board[i][j] == null)
+					throw new IllegalArgumentException("Invalid board: board contains null pieces");
+			}
+		}
+	}
+	
+	/**
+	 * Validates the specified row and column are within range of the board
+	 * @param row Row of the piece location
+	 * @param col Column of the piece location
+	 */
+	private void validatePieceLocation(int row, int col) {
+		if (row < 0 || row >= numRows())
+			throw new IllegalArgumentException("Invalid row: value is outside of board bounds");
+		if (col < 0 || col >= numCols())
+			throw new IllegalArgumentException("Invalid col: value is outside of board bounds");
 	}
 
 }
