@@ -155,9 +155,9 @@ public class GameBoard {
 	 */
 	public void print()
 	{
-		for (int i=0; i<currentBoard.length; i++)
+		for (int i=0; i<numRows(); i++)
 		{
-			for(int j=0; j<currentBoard[0].length; j++)
+			for(int j=0; j<numCols(); j++)
 			{
 				System.out.print(currentBoard[i][j].getStateValue());
 				System.out.print(' ');
