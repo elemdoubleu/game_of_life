@@ -13,19 +13,16 @@ public class GameOfLife {
 					{PieceState.ALIVE, PieceState.DEAD, PieceState.DEAD, PieceState.DEAD, PieceState.ALIVE}
 			};
 		
-		// Print first generation
+		// Create first generation GameBoard
 		GameBoard currentBoard = new GameBoard(currentGameBoard);	
-		System.out.println("Generation 1:");
-		currentBoard.print();
-		System.out.println();
 		
-		// Print generations 2 to 5
+		// Print generations 1 to 5
 		for (int i=2; i<=5; i++)
-		{
-			currentBoard = currentBoard.nextGeneration();
+		{	
 			System.out.println("\nGeneration " + i + ":");
 			currentBoard.print();
 			System.out.println();
+			currentBoard = currentBoard.nextGeneration();
 		}
 		
 	}
